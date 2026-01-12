@@ -9,7 +9,7 @@ graph TD
     User((User)) -->|HTTPS| ALB(Application Load Balancer)
     ALB -->|Traffic Dist| ASG(Auto Scaling Group)
     subgraph VPC
-        subgraph Private Subnet
+        subgraph Public_Subnet
             ASG -->|Runs| Docker[Docker Container (FastAPI)]
             Docker -->|Reads/Writes| DB[(RDS / DynamoDB)]
         end
