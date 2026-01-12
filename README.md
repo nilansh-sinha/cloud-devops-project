@@ -1,5 +1,11 @@
 # Secure Cloud-Native Application
 
+![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20ALB%20%7C%20ASG-orange)
+![Docker](https://img.shields.io/badge/Docker-Containerization-blue)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-purple)
+![FastAPI](https://img.shields.io/badge/FastAPI-Python-green)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-black)
+
 A production-ready cloud-native application on AWS demonstrating CI/CD, Infrastructure as Code, Containerization, Monitoring, and Security best practices.
 
 ---
