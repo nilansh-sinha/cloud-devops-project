@@ -1,59 +1,103 @@
 # Secure Cloud-Native Application
 
-A production-ready cloud-native application on AWS demonstrating CI/CD, Infrastructure as Code, Containerization, and Security best practices.
+A production-ready cloud-native application on AWS demonstrating CI/CD, Infrastructure as Code, Containerization, Monitoring, and Security best practices.
 
-## 🧱 Architecture
+---
 
-```mermaid
-graph TD
-    User[User / Browser]
-    ALB[Application Load Balancer]
-    ASG[Auto Scaling Group]
-    Docker[Docker Container<br/>(FastAPI App)]
-    DB[(RDS / DynamoDB)]
-    CloudWatch[CloudWatch Logs & Metrics]
+## Architecture
 
-    User -->|HTTPS| ALB
-    ALB --> ASG
-    ASG --> Docker
-    Docker -->|Read / Write| DB
-    Docker -->|Logs & Metrics| CloudWatch
+```
+User
+  |
+  v
+Application Load Balancer
+  |
+  v
+Auto Scaling Group
+  |
+  v
+FastAPI Application (Docker)
+  |
+  +--> Database (RDS / DynamoDB)
+  |
+  +--> Monitoring (CloudWatch / Prometheus)
+```
 
-## 🚀 Tech Stack
+---
 
-- **Cloud**: AWS (EC2/ECS, ALB, Auto Scaling, CloudWatch)
-- **App**: Python FastAPI
-- **Containerization**: Docker
-- **IaC**: Terraform
-- **CI/CD**: GitHub Actions
+## Tech Stack
 
-## 📂 Repository Structure
+### Cloud
+- AWS EC2
+- Application Load Balancer
+- Auto Scaling Group
+- CloudWatch
 
-- `app/` - Python application source code.
-- `docker/` - Dockerfile and container scripts.
-- `terraform/` - Infrastructure definitions.
-- `.github/workflows/` - CI/CD pipelines.
-- `monitoring/` - Dashboard configs and alert definitions.
+### Application
+- Python
+- FastAPI
 
-## 🛡 Security Highlights
+### Containerization
+- Docker
 
-- **Least Privilege**: IAM roles restricted to minimum necessary permissions.
-- **Network Isolation**: App runs in private subnets; only ALB is public.
-- **Secrets Management**: No hardcoded credentials.
-- **Container Security**: Non-root user execution, multi-stage builds.
+### Infrastructure as Code
+- Terraform
 
-## ⚡ Deployment
+### CI/CD
+- GitHub Actions
 
-### Prerequisites
-- AWS CLI configured
-- Terraform installed
-- Docker installed
+### Monitoring
+- Prometheus
+- CloudWatch
 
-### Steps
-1. **Build Container**: `docker build -t cloud-app ./docker`
-2. **Infrastructure**: 
-    ```bash
-    cd terraform
-    terraform init
-    terraform apply
-    ```
+---
+
+## Repository Structure
+
+```
+cloud-devops-project/
+├── app/                # FastAPI source code
+├── docker/             # Dockerfile
+├── terraform/          # Infrastructure as Code
+├── monitoring/         # Prometheus configs
+├── .github/workflows/  # CI/CD pipelines
+├── local_test.sh
+└── README.md
+```
+
+---
+
+## Security Highlights
+
+- Least privilege IAM roles
+- Application runs in private subnets
+- No hardcoded secrets
+- Non-root Docker containers
+- Secure CI/CD pipeline
+
+---
+
+## Run Locally
+
+```bash
+git clone https://github.com/nilansh-sinha/cloud-devops-project.git
+cd cloud-devops-project
+
+docker build -t cloud-devops-app ./docker
+docker run -p 8000:8000 cloud-devops-app
+```
+
+Access the application:
+```
+http://localhost:8000
+```
+
+---
+
+## Author
+
+**Nilansh Sinha**  
+B.Tech – Cyber Security  
+VIT Vellore  
+
+GitHub: https://github.com/nilansh-sinha
