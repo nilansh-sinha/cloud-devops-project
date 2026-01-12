@@ -2,23 +2,22 @@
 
 A production-ready cloud-native application on AWS demonstrating CI/CD, Infrastructure as Code, Containerization, and Security best practices.
 
-## 🏗 Architecture
+## 🧱 Architecture
 
 ```mermaid
 graph TD
-    User((User)) -->|HTTPS| ALB(Application Load Balancer)
-    ALB -->|Traffic Dist| ASG(Auto Scaling Group)
-    subgraph VPC
-        subgraph Public_Subnet
-            ASG -->|Runs| Docker[Docker Container (FastAPI)]
-            Docker -->|Reads/Writes| DB[(RDS / DynamoDB)]
-        end
-        subgraph Public Subnet
-            ALB
-        end
-    end
-    Docker -->|Logs/Metrics| CloudWatch[CloudWatch]
-```
+    User[User / Browser]
+    ALB[Application Load Balancer]
+    ASG[Auto Scaling Group]
+    Docker[Docker Container<br/>(FastAPI App)]
+    DB[(RDS / DynamoDB)]
+    CloudWatch[CloudWatch Logs & Metrics]
+
+    User -->|HTTPS| ALB
+    ALB --> ASG
+    ASG --> Docker
+    Docker -->|Read / Write| DB
+    Docker -->|Logs & Metrics| CloudWatch
 
 ## 🚀 Tech Stack
 
