@@ -12,6 +12,8 @@ A production-ready cloud-native application on AWS demonstrating CI/CD, Infrastr
 
 ## Architecture
 
+![Architecture Diagram](architecture.png)
+
 ```
 User
   |
