@@ -85,6 +85,19 @@ cloud-devops-project/
 
 ---
 
+## 💰 Cost Awareness
+
+This project is designed with cost efficiency in mind and aligns with AWS Free Tier wherever possible.
+
+- Uses **Application Load Balancer + Auto Scaling Group** only for demonstration purposes
+- Infrastructure is intended to be **created and destroyed on demand**
+- Supports running with **t2.micro / t3.micro** instances
+- No long-running resources are required
+- Monitoring configured to avoid high-cost metrics ingestion
+- Designed for learning and portfolio demonstration, not 24/7 production usage
+
+> ⚠️ **Note:** Users should always delete AWS resources after testing to avoid unexpected charges.
+
 ## Run Locally
 
 ```bash
